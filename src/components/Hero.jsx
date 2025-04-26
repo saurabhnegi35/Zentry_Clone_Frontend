@@ -19,6 +19,7 @@ const Hero = () => {
   const nextVideoRef = useRef(null);
 
   const handleVideoLoad = () => {
+    console.log("Run");
     setLoadedVideos((prev) => prev + 1);
   };
 
