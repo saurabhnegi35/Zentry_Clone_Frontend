@@ -20,7 +20,7 @@ const Hero = () => {
 
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
-    console.log("was here")
+    console.log("was here");
   };
 
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
@@ -132,6 +132,7 @@ const Hero = () => {
             id="next-video"
             className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
             onLoadedData={handleVideoLoad}
+            onError={() => console.log("Video failed to load 1")}
           />
           <video
             src={getVideoSource(
@@ -142,6 +143,7 @@ const Hero = () => {
             muted
             className="absolute left-0 top-0 size-full object-cover object-center"
             onLoadedData={handleVideoLoad}
+            onError={() => console.log('Video failed to load 2')}
           />
         </div>
         <h1 className="font-zentry hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
