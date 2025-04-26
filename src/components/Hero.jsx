@@ -19,8 +19,8 @@ const Hero = () => {
   const nextVideoRef = useRef(null);
 
   const handleVideoLoad = () => {
-    console.log("Run");
     setLoadedVideos((prev) => prev + 1);
+    console.log("was here")
   };
 
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
@@ -39,6 +39,12 @@ const Hero = () => {
   console.log("isLoading", isLoading);
   console.log("loadedVideos", loadedVideos);
   console.log("totalVideos", totalVideos);
+  useEffect(() => {
+    console.log(
+      "Video paths check:",
+      Array.from({ length: totalVideos }, (_, i) => getVideoSource(i + 1))
+    );
+  }, []);
 
   useGSAP(
     () => {
